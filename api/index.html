@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>ACE in Action</title>
+<link rel="stylesheet" href="https://unpkg.com/98.css" />
+<style type="text/css" media="screen">
+body {
+
+    margin:0;
+
+}
+    .window {
+        display:flex;
+        flex-direction:column;
+            height:100dvh;
+                padding:0;
+                  
+    }
+    .window-body {
+        flex-grow:1;
+        margin:0 4px 4px 4px;
+   }
+    .title-bar {
+       margin:4px; 
+    }
+    .status-bar {
+
+
+        margin:0 4px 4px 4px;
+    }
+    #editor { 
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+    #editor {
+        width:100%;
+        height:100%;
+    }
+</style>
+</head>
+<body>
+
+<div class="window">
+  <div class="title-bar">
+    <div class="title-bar-text">A Window With A Status Bar</div>
+  </div>
+  <div style="margin:0 4px 4px 4px">
+      <button id="save-button">Save</button>
+
+  </div>
+  <div class="window-body">
+
+    <div id="editor">Hi!</div>
+      <!--<ul>
+    <li>A Task Manager</li>
+    <li>A Notepad</li>
+    <li>Or even a File Explorer!</li>
+</ul>-->
+  </div>
+  <div class="status-bar">
+    <p class="status-bar-field">Press F1 for help</p>
+    <p class="status-bar-field">Slide 1</p>
+    <p class="status-bar-field">CPU Usage: 14%</p>
+  </div>
+</div>
+    
+<!--<script src="/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.31.2/ace.min.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    let editor;
+    fetch('data.json').then((o) => o.json()).then((data) => {
+        console.log(data);
+        editor = ace.edit("editor");
+    editor.setTheme("ace/theme/monokai");
+    editor.session.setMode("ace/mode/javascript");
+editor.setValue(JSON.stringify(data, null, '\t'));
+    });
+    let sb = document.querySelector("#save-button");
+    sb.addEventListener('click', function(o) {
+
+        console.log(editor.getValue());
+    });
+   </script>
+</body>
+</html>
+
+

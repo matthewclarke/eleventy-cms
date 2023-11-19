@@ -11,6 +11,7 @@ http.createServer(function (req, res) {
   const parsedUrl = url.parse(req.url);
   // extract URL path
   let pathname = `.${parsedUrl.pathname}`;
+    console.log(pathname);
   // based on the URL path, extract the file extension. e.g. .js, .doc, ...
   const ext = path.parse(pathname).ext;
   // maps file extension to MIME typere
@@ -29,7 +30,7 @@ http.createServer(function (req, res) {
     '.doc': 'application/msword'
   };
 
-    let file ='./src/api/data.json'; 
+    let file ='./api/data.json'; 
 
   fs.exists(file, function (exist) {
     
@@ -47,10 +48,11 @@ http.createServer(function (req, res) {
       res.end(`File ${pathname} not found!`);
       return;
     }
-
+    
     // if is a directory search for index file matching the extension
-    if (fs.statSync(pathname).isDirectory()) pathname += '/index' + ext;
-
+    //if (fs.statSync(pathname).isDirectory()) pathname += '/index' + ext;
+    if (fs.statSync(pathname).isDirectory()) pathname += 'index.html';
+    //console.log(pathname);
     // read file from file system
     fs.readFile(pathname, function(err, data){
       if(err){
@@ -58,7 +60,7 @@ http.createServer(function (req, res) {
         res.end(`Error getting the file: ${err}.`);
       } else {
         // if the file is found, set Content-type and send data
-        res.setHeader('Content-type', map[ext] || 'text/plain' );
+        res.setHeader('Content-type', map[ext] || 'text/html' );
         res.end(data);
       }
     });
