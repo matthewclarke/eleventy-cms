@@ -1,4 +1,5 @@
 module.exports = eleventyConfig => {
+eleventyConfig.addWatchTarget("src/api");
   // Use the eleventyConfig object's built in methods to customize
     return {
     dir: {
