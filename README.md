@@ -8,7 +8,8 @@ node app.js
 npx @11ty/eleventy --serve
 
 # TODO
-- ❌ Add LowDB
+- ✔  Add Nosql Doc store
+- ❌ Add Sqlite store
 - ❌ Add templates 
  
 
