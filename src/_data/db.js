@@ -1,7 +1,7 @@
 const EleventyFetch = require("@11ty/eleventy-fetch");
 
 module.exports = async function() {
-  let url ='http://localhost:9000/api/data.json';
+  let url ='http://localhost:9000/get'
 // const url = 'https://raw.githubusercontent.com/matthewclarke/eleventy-cms/master/src/api/data.json';
 
   /* This returns a promise */

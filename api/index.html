@@ -79,6 +79,14 @@ editor.setValue(JSON.stringify(data, null, '\t'));
     });
     let sb = document.querySelector("#save-button");
     sb.addEventListener('click', function(o) {
+fetch("/post", {
+  method: "POST",
+    body: editor.getValue(),
+  headers: {
+        'Accept': 'application/json',
+  'Content-Type': 'application/json'
+  }
+});
 
         console.log(editor.getValue());
     });
