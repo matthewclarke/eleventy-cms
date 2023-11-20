@@ -2,7 +2,6 @@
 An Eleventy CMS for building static sites. Aimed at presntation, narrative type sites with hooks for Voiceover, 3d (thrree.js) amd e-learning.
 Create seamless experinces that deliver a SPA experience but built on a SSG site.
 
-
 # BUILD
 Start api server
 ```JS
