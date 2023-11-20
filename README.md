@@ -3,7 +3,9 @@
 
 # BUILD
 - start api server
-node app.js
+```JS
+$ node app.js
+```
 - start eleventy server
 npx @11ty/eleventy --serve
 
