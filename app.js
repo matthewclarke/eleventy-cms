@@ -9,7 +9,12 @@ const { JsonDB, Config }  = require('node-json-db');
 let db;
 let init = async () => {
     db = new JsonDB(new Config("api/cms-database", true, false, '/'));
-    await db.push("/pages",[{"name":"first-page", "template":"first-page.njk"}]);
+    await db.push("/pages",[
+        {"name":"first-page", "template":"firstpage.njk"},
+        {"name":"second-page", "template":"firstpage.njk"}
+
+
+    ]);
     let data = await db.getData("/pages");
     console.log(data);
     return;

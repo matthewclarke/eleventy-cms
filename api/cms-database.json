@@ -1,1 +1,1 @@
-{"pages":[{"name":"first-page","template":"first-page.njk"}]}
+{"pages":[{"name":"first-page","template":"firstpage.njk"},{"name":"second-page","template":"firstpage.njk"}]}

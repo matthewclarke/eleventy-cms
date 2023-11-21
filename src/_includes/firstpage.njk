@@ -1,17 +1,19 @@
 ---
 ---
-
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }}</title>
+    <title>{{ db.name  }}</title>
   </head>
   <body>
-    {% for o in db %}
-       <a href=" {{ o.name }}">{{ o.name }}</a>
-    {% endfor %}
-    {{ content | safe }}
+
+Hi {{ templateA  }} 
+{% title 'title'  %}
+  Matthew
+{% endtitle %}
+{{ content | safe }}
+<a href="{{ db.name | slugify }}">{{ db.name}}</a>
   </body>
 </html>
